@@ -5,5 +5,5 @@ describe DockingStation do
 
   #it { is_expected.to be_instance_of bike}
   
-  it expect(:release_bike).to receive(:new)
+ # it expect(:release_bike).to receive(:new)
 end
