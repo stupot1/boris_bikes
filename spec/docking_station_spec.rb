@@ -22,5 +22,12 @@ describe DockingStation do
       expect(subject.dock_bike(bike)).to eq('bike is docked')  
     end
   end
-
+  
+  describe '@bikes' do
+    it 'sees what bikes are docked' do
+      bike = Bike.new
+      subject.dock_bike(bike)
+      expect(subject.bikes[0]).to eq(bike)
+    end  
+  end
 end
