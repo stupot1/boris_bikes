@@ -22,24 +22,21 @@ describe DockingStation do
   end
 
   describe '#dock_bike' do
-    it 'docks working bike' do
+    xit 'docks working bike' do
       expect(subject.dock_bike(bike)).to eq('bike is docked')
     end
 
     it "will not dock bikes if it has hit capacity" do
-      subject.dock_bike(bike)
-      expect {subject.dock_bike(Bike.new)}.to raise_error("There are no docking spaces available")
+      subject.capacity.times { subject.dock_bike Bike.new }
+      expect { subject.dock_bike(Bike.new) }.to raise_error("There are no docking spaces available")
     end
   end
 
   describe '@bikes' do
     it 'sees what bikes are docked' do
       subject.dock_bike(bike)
-      expect(subject.bikes[0]).to eq(bike)
+      expect(subject.docked_bikes[0]).to eq(bike)
     end
   end
-
-
-
-
+  
 end
